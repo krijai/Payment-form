@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Payment Form</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body>
+
+    <!-- The HTML for our form will go here -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    
+    <div class="payment-form">
+        <div class="payment-form__title-wrapper">
+            <h1 class="payment-form__title">Pay Invoice</h1>
+        </div>
+        <form onsubmit="validateFields(event)" method="post">
+            <div class="payment-form__field">
+                <label class="payment-form__label" for="pamount">Payment amount</label>
+                <input class="payment-form__input" type="text" id="pamount" name="paymentamount" placeholder="$500.00">
+                <p class="payment-form__amount">$500.00</p>
+                <button class="payment-form__edit-btn" type="button" onclick="edit()">Edit</button>
+                <button class="payment-form__ok-btn" type="button" onclick="updateAmount()">OK</button>
+            </div>
+
+            <div class="payment-form__field">
+                <label class="payment-form__label" for="name">Name on card</label>
+                <input class="payment-form__input" type="text" name="name" id="name">
+                <span class="payment-form__error-msg">This field is required</span>
+            </div>
+
+            <div class="payment-form__field">
+                <label class="payment-form__label" for="cnumber">Card number</label>
+                <input class="payment-form__input" type="text" name="cardnumber" id="cnumber">
+                <span class="payment-form__error-msg">This field is required</span>
+            </div>
+
+            <div class="half-width">
+                <label class="payment-form__label" for="expdate">Expiry date</label>
+                <input class="payment-form__input payment-form--no-border-right-radius" type="text" name="expirydate" id="expdate" placeholder="MM/YY" maxlength="5">
+                <span class="payment-form__error-msg">This field is required</span>
+            </div>
+
+            <div class="half-width">
+                <label class="payment-form__label" for="scode">Security code</label>
+                <div class="payment-form__q-icon-wrapper">
+                    <input class="payment-form__input payment-form--no-border-left-radius" type="text" name="securitycode" id="scode" maxlength="3">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span class="payment-form__q-icon-tool-tip">
+                        The CVV Number ("Card Verification Value") on your credit card or debit card is a 3 digit number on VISA®, MasterCard® and Discover® branded credit and debit cards. On your American Express® branded credit or debit card it is a 4 digit numeric code.
+                    </span>
+                    <span class="payment-form__error-msg">This field is required</span>
+                </div>
+                
+            </div>
+
+            <div class="payment-form__field">
+                <label class="payment-form__label" for="pcode">ZIP/Postal code</label>
+                <div class="payment-form__q-icon-wrapper">
+                    <input class="payment-form__input" type="text" name="postalcode" id="pcode">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                    <span class="payment-form__q-icon-tool-tip">
+                        A postal code is a series of letters or digits or both, sometimes including spaces or punctuation, included in a postal address for the purpose of sorting mail.
+                    </span>
+                    <span class="payment-form__error-msg">This field is required</span>
+                </div>
+                    
+            </div>
+
+            <div class="payment-form__submit">
+                <input type="submit" value="Pay $500.00">
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
